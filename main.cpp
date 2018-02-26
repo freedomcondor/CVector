@@ -4,6 +4,10 @@
 
 int main()
 {
+	printf("------------------------------\n");
+	printf("       Vector3                \n");
+	printf("------------------------------\n");
+
 	Vector3 a(2,2,2);
 	a.set(0,1,2);
 	//Vector3 b(&a);
@@ -38,6 +42,8 @@ int main()
 	printf("a+b = %s\n",(a+b).toStr());
 	c = a + b;
 	printf("c = a+b = %s\n",(c).toStr());
+	c = a + Vector3(2,2,2);
+	printf("c = a+(2,2,2) = %s\n",(c).toStr());
 
 	printf("-------------- *= /= test --------------\n");
 	printf("a = %s\n",a.toStr());
@@ -63,10 +69,10 @@ int main()
 
 	printf("-------------- ^ test --------------\n");
 	printf("a = %s\n",a.toStr());
-	double cc;
-	cc = a ^ a;
+	double cc_d;
+	cc_d = a ^ a;
 	printf("a^a = %lf\n",a^a);
-	printf("cc = %lf\n",cc);
+	printf("cc = %lf\n",cc_d);
 	printf("a^2 = %lf\n",a^2);
 	printf("a^3 = %lf\n",a^3);
 
@@ -89,6 +95,71 @@ int main()
 	a.makenor();
 	printf("a = %s\n",a.toStr());
 	printf("a.len = %lf\n",a.len());
+
+
+	printf("------------------------------\n");
+	printf("       Quaternion             \n");
+	printf("------------------------------\n");
+
+	Quaternion aa(1,2,3,4);
+	Quaternion bb(aa);
+	Quaternion cc(a,5);
+	printf("aa = %s\n",aa.toStr());
+	printf("bb = %s\n",bb.toStr());
+	printf("cc = %s\n",cc.toStr());
+
+	printf("-------------- + - test --------------\n");
+	printf("aa = %s\n",aa.toStr());
+	printf("bb = %s\n",bb.toStr());
+	aa += bb;
+	printf("aa += bb = %s\n",aa.toStr());
+	bb += Quaternion(3,2,1,0);
+	printf("bb += (3,2,1,0) = %s\n",bb.toStr());
+
+	printf("aa = %s\n",aa.toStr());
+	printf("bb = %s\n",bb.toStr());
+	printf("-aa = %s\n",(-aa).toStr());
+	cc = -aa;
+	printf("cc = -aa = %s\n",cc.toStr());
+	cc = aa - bb;
+	printf("cc = aa-bb = %s\n",cc.toStr());
+	cc = aa + bb;
+	printf("cc = aa+bb = %s\n",cc.toStr());
+
+	printf("-------------- *= /= test --------------\n");
+	printf("aa = %s\n",aa.toStr());
+	aa *= 3;
+	printf("aa*=3 = %s\n",aa.toStr());
+	aa /= 4;
+	printf("aa/=4 = %s\n",aa.toStr());
+	aa /= 0;
+	printf("aa/=0 = %s\n",aa.toStr());
+	
+	printf("-------------- * / test --------------\n");
+	aa.set(1,2,3,4);
+	printf("aa = %s\n",aa.toStr());
+	printf("bb = %s\n",bb.toStr());
+	cc = aa * bb;
+	printf("cc = aa*bb = %s\n",cc.toStr());
+	cc = aa / 3;
+	printf("cc = aa/3 = %s\n",cc.toStr());
+	cc = aa * 3;
+	printf("cc = aa*3 = %s\n",cc.toStr());
+
+
+	printf("-------------- len & inv test --------------\n");
+	printf("aa = %s\n",aa.toStr());
+	printf("aa.len() = %lf\n",aa.len());
+	cc = aa.inv();
+	printf("cc = aa.inv() = %s\n",cc.toStr());
+
+	printf("-------------- rotate test --------------\n");
+	aa.setFromRotation(Vector3(0,0,1),3.1415926);
+	a.set(1,0,0);
+	printf("a = %s\n",a.toStr());
+	printf("aa = %s\n",aa.toStr());
+	c = aa.toRotate(a);
+	printf("c = %s\n",c.toStr());
 
 	return 0;
 }

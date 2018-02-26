@@ -13,36 +13,36 @@ public:
 	int set(const Vector3& _x);	// b.set(a);
 	int set(double _x, double _y, double _z);
 
-	// operaters
+	// operators
 	Vector3& operator+=(const Vector3& _x);
 	Vector3& operator-=(const Vector3& _x);
-	Vector3  operator-(const Vector3& _x);
-	Vector3  operator-();
-	Vector3  operator+(const Vector3& _x);
+	Vector3  operator-(const Vector3& _x) const;
+	Vector3  operator-() const;
+	Vector3  operator+(const Vector3& _x) const;
 
 	Vector3& operator*=(double _x);
 	Vector3& operator/=(double _x);
 
 	Vector3  operator*(double _x) const;	// const at last means it won't change class members
 											// so that friend doube * Vec3 can use it
-	Vector3  operator/(double _x);
+	Vector3  operator/(double _x) const;
 	friend Vector3 operator*(double _x,const Vector3& _y);
-	Vector3  operator*(const Vector3& _x);
+	Vector3  operator*(const Vector3& _x) const;
 
-	double operator^(double _x);
-	double operator^(const Vector3& _x);
+	double operator^(double _x) const;
+	double operator^(const Vector3& _x) const;
 
 	// compare ==  /len/nor/squlen
-	bool operator==(const Vector3& _x);
-	double len();
-	Vector3 nor();
+	bool operator==(const Vector3& _x) const;
+	double len() const;
+	Vector3 nor() const;
 	Vector3& makenor();
 
 public:
 	// for print
 	char* toStr();			// use printf("%s",me.toStr());
 private: 
-	char strForMe[50]; // used by toStr
+	char strForMe[100]; // used by toStr
 
 	// should be a rotation nearby
 };

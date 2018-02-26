@@ -1,5 +1,5 @@
 #include "Vector3.h"
-#include <stdio.h>	// for sprintf in toStr
+#include <stdio.h>	// for sprintf in toStr and printf
 #include <math.h>	// for sqrt
 
 Vector3::Vector3()
@@ -50,21 +50,21 @@ Vector3& Vector3::operator-=(const Vector3& _x)
 	return *this;
 }
 
-Vector3 Vector3::operator- ()
+Vector3 Vector3::operator- () const
 {
 	Vector3 c(0,0,0);
 	c -= *this;
 	return c;
 }
 
-Vector3 Vector3::operator- (const Vector3& _x)
+Vector3 Vector3::operator- (const Vector3& _x) const
 {
 	Vector3 c(*this);
 	c -= _x;
 	return c;
 }
 
-Vector3 Vector3::operator+ (const Vector3& _x)
+Vector3 Vector3::operator+ (const Vector3& _x) const
 {
 	Vector3 c(*this);
 	c += _x;
@@ -100,7 +100,7 @@ Vector3 Vector3::operator* (double _x) const
 	return c;
 }
 
-Vector3 Vector3::operator/ (double _x)
+Vector3 Vector3::operator/ (double _x) const
 {
 	Vector3 c(*this);
 	c /= _x;
@@ -112,7 +112,7 @@ Vector3 operator*(double _x,const Vector3& _y)
 	return _y * _x;
 }
 
-Vector3 Vector3::operator*(const Vector3& _x)
+Vector3 Vector3::operator*(const Vector3& _x) const
 {
 	Vector3 c(	this->y * _x.z - this->z * _x.y,
 				this->z * _x.x - this->x * _x.z,
@@ -120,7 +120,7 @@ Vector3 Vector3::operator*(const Vector3& _x)
 	return c;
 }
 
-double Vector3::operator^(double _x)
+double Vector3::operator^(double _x) const
 {
 	double c = 0;
 	if (_x == 2)
@@ -129,7 +129,7 @@ double Vector3::operator^(double _x)
 		printf("in Vector3, invalid ^\n");
 	return c;
 }
-double Vector3::operator^(const Vector3& _x)
+double Vector3::operator^(const Vector3& _x) const
 {
 	return 	this->x * _x.x +
 			this->y * _x.y +
@@ -138,17 +138,17 @@ double Vector3::operator^(const Vector3& _x)
 
 ////// operator  == len nor squlen //////////////////////////////
 
-bool Vector3::operator==(const Vector3& _x)
+bool Vector3::operator==(const Vector3& _x) const
 {
 	return (this->x == _x.x && this->y == _x.y && this->z == _x.z);
 }
 
-double Vector3::len()
+double Vector3::len() const
 {
 	return sqrt(this->x * this->x + this->y * this->y + this->z * this->z);
 }
 
-Vector3 Vector3::nor()
+Vector3 Vector3::nor() const
 {
 	double l = this->len();
 	Vector3 c(*this / l);
