@@ -90,9 +90,5 @@ int main()
 	printf("a = %s\n",a.toStr());
 	printf("a.len = %lf\n",a.len());
 
-#ifdef Quaternion
-	a.rotatetest();
-#endif
-
 	return 0;
 }
