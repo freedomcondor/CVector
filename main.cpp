@@ -161,5 +161,9 @@ int main()
 	c = aa.toRotate(a);
 	printf("c = %s\n",c.toStr());
 
+	aa.setFromRotation(Vector3(0,0,1),3.1415926/2);
+	c = aa.toRotate(a);
+	printf("c = %s\n",c.toStr());
+
 	return 0;
 }
