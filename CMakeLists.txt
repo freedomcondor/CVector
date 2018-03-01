@@ -24,7 +24,7 @@ ELSE ()
 	MESSAGE(STATUS "other platform: ${CMAKE_SYSTEM_NAME}")  
 ENDIF (CMAKE_SYSTEM_NAME MATCHES "Linux")  
 
-set(CMAKE_BUILD_TYPE Debug)
+#set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(cVector src/main.cpp
 					src/Quaternion.cpp
