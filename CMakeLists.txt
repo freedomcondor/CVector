@@ -25,6 +25,11 @@ ELSE ()
 ENDIF (CMAKE_SYSTEM_NAME MATCHES "Linux")  
 
 #set(CMAKE_BUILD_TYPE Debug)
+MESSAGE(STATUS "CMAKEFLAG = ${CMAKEFLAG}")  
+IF (CMAKEFLAG)
+	add_definitions(-DAAA)
+	MESSAGE(STATUS "AAAisset")  
+ENDIF (CMAKEFLAG)
 
 add_executable(cVector src/main.cpp
 					src/Quaternion.cpp

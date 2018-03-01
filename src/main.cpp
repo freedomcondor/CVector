@@ -2,6 +2,7 @@
 #include "Vector3.h"
 #include "Quaternion.h"
 
+
 int main()
 {
 	printf("------------------------------\n");
@@ -164,6 +165,12 @@ int main()
 	aa.setFromRotation(Vector3(0,0,1),3.1415926/2);
 	c = aa.toRotate(a);
 	printf("c = %s\n",c.toStr());
+
+#ifdef AAA
+	printf("AAA\n");
+#else
+	printf("BBB\n");
+#endif
 
 	return 0;
 }
