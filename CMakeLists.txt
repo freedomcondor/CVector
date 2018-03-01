@@ -26,7 +26,7 @@ ENDIF (CMAKE_SYSTEM_NAME MATCHES "Linux")
 
 set(CMAKE_BUILD_TYPE Debug)
 
-add_executable(main src/main.cpp
+add_executable(cVector src/main.cpp
 					src/Quaternion.cpp
 					src/Vector3.cpp
 			  )
