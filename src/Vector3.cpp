@@ -151,6 +151,8 @@ double Vector3::len() const
 Vector3 Vector3::nor() const
 {
 	double l = this->len();
+	if (l == 0)
+		return *this;
 	Vector3 c(*this / l);
 	return c;
 }
