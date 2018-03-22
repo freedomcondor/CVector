@@ -167,6 +167,15 @@ int main()
 	c = aa.toRotate(a);
 	printf("c = %s\n",c.toStr());
 
+	printf("-------------- create from 4Vecs test --------------\n");
+	aa.setFrom4Vecs(	Vector3(1,0,0),Vector3(0,0,1),
+						Vector3(1,1,0),Vector3(0,0,1)	);
+	a.set(1,0,0);
+	printf("a = %s\n",a.toStr());
+	printf("aa = %s\n",aa.toStr());
+	c = aa.toRotate(a);
+	printf("c = %s\n",c.toStr());
+
 #ifdef AAA
 	printf("AAA\n");
 #else
