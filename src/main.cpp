@@ -2,6 +2,7 @@
 #include <cstddef>
 #include "Vector3.h"
 #include "Quaternion.h"
+#include "Matrix3.h"
 
 
 int main()
@@ -181,6 +182,13 @@ int main()
 #else
 	printf("BBB\n");
 #endif
+	
+	printf("------------------------------\n");
+	printf("       Matrix3                \n");
+	printf("------------------------------\n");
+
+	Matrix3 mata;
+	printf("mata = %s\n", mata.toStr());
 
 	return 0;
 }

@@ -34,4 +34,5 @@ ENDIF (CMAKEFLAG)
 add_executable(cVector src/main.cpp
 					src/Quaternion.cpp
 					src/Vector3.cpp
+					src/Matrix3.cpp
 			  )
